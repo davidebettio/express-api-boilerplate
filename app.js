@@ -5,21 +5,25 @@ import { hostname } from 'os';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 
+import routes from './routes';
+
 const app = express();
 
+// log
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 'loopback');
   app.use(morgan('common'));
 } else {
   app.use(morgan('dev'));
 }
+
+// middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 
-app.get('/', (req, res) => {
-  res.send({ welcome_to: 'my-api' });
-});
+// routes
+routes(app);
 
 const server = app.listen(8001, () => {
   const host = server.address().address;
