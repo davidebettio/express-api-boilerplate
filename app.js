@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 
 app.get('/', (req, res) => {
-  res.send({ welcome_to: 'gtroutes-api' });
+  res.send({ welcome_to: 'my-api' });
 });
 
 const server = app.listen(8001, () => {
