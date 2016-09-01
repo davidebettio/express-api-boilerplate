@@ -1,0 +1,13 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules":{
+    "no-console": 0,
+    "generator-star-spacing": 0,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}]
+  }
+}
